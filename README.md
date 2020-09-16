@@ -3,6 +3,7 @@
 - [Important](#important) 
 - [Supported Versions](#supported-versions)
 - [ARMada Workstation](#armada-workstation)
+  - [Workstation Description](#workstation-description)
   - [Camera Topics](#camera-topics)
   - [Usage](#usage)
   - [Integrated Packages](#integrated-packages)
@@ -13,13 +14,14 @@ This package is currently under construction, a more complete and accurate model
 # Supported Versions
 All branches have only been tested with ROS Kinetic.  
 
-The xacro files and URDF files contained within this package should be compatible with other distributions of ROS.  
+- The xacro files and URDF files contained within this package should be compatible with other distributions of ROS.  
 
-The user should confirm that the Gazebo plugins used to simulate RGBD cameras in this package are consistent with the ROS distribution that they are using (make sure to check the Gazebo documentation if there are issues/conflicts).  
+- The user should confirm that the Gazebo plugins used to simulate RGBD cameras in this package are consistent with the ROS distribution that they are using (make sure to check the Gazebo documentation if there are issues/conflicts).  
 
 # ARMada Workstation
 The `uml_hri_nerve_armada_workstation` package is meant to provide a simulated alternative to the workstations constructed for experimentation/testing of industrial robotic arms within the NERVE Center.  
 
+## Workstation Description
 Currently, only a simple model is provided which uses simple shapes to define the rough size and shape of the workstation. L-shaped arms protruding from both sides and the rear of the workstation represent structures from which cameras could be affixed and serve such purpose in the simulated model. The fourth camera is suspended above the workstation, pointing down, and does not have any connected architecture.  
 
 ## Camera Topics
@@ -39,11 +41,11 @@ in order to view the full list of camera depth and color topics when in use.
 ## Usage
 This package supplements other moveit config packages which have the proper launch and configuration files to bring up the robot on the workstation in a gazebo simulation  
 
-After ensuring that your robot can be simulated within Gazebo, the proper way to integrate the workstation into the simulated environment is to make a separate set of launch files that will semantically attach the robot to the workstation and parse its URDF along with that of the robot in order to be published by the robot_state_publisher.  
+After ensuring that your robot can be simulated within Gazebo, the proper way to integrate the workstation into the simulated environment is to make a separate set of launch files that will semantically attach the robot to the workstation and parse its URDF along with that of the robot so that the robot\_state\_publisher can publish all transforms properly.  
 
-In a typical robot Moveit! configuration package there are launch files for bringing up a real or simulated robot in Rviz with Moveit! controls, as well as those to bring up the robot in a Gazebo environment which can subsequently be controlled via Moveit! in Rviz using the motion_planning GUI.  
+In a typical robot Moveit! configuration package there are launch files for bringing up a real or simulated robot in Rviz with Moveit! controls as well as those to bring up the robot in a Gazebo environment which can subsequently be controlled via Moveit! in Rviz using the motion_planning GUI or otherwise with code. As mentioned above, we need to follow this process while adding another component to the model which is generated.  
 
-In the robot_description (or similar location) there should be an .xacro file that 
+In the robot_description (or similar location) there should be an .xacro file that contains instructions for how to assemble the robot and workstation model. The result should look something similar to the code provided below:  
 
 ```
   <xacro:include filename="$(find kinova_description)/urdf/j2s7s300.xacro"/>
@@ -73,6 +75,8 @@ In the robot_description (or similar location) there should be an .xacro file th
   <xacro:j2s7s300  base_parent="${robot_root}"/>
 ```
 
+The file which describes the workstation `workstation_model.urdf.xacro` is contained within this package and included as shown above. This allows the user to create a virtual joint (in this case `connect_table_and_root`) between the robot and workstation, as wel as a joint (`connect_world_and_table`) which will connect the table to the common reference frame, `world`, which normally the robot would be attached to.  
+
 ## Integrated Packages
 The following is a list of industrial robot repositories/moveit config packages which are already configured to launch the robot and workstation together in a simulated Gazebo environment:  
 
@@ -81,7 +85,7 @@ The following is a list of industrial robot repositories/moveit config packages 
   - The simulation can be run with the following command for the workstation and j2s7s300 version of the Jaco2 robot: 
 	`roslaunch j2s7s300_moveit_config j2s7s300_gazebo_workstation_and_robot.launch`
 
-More repositories will be added to the list, this process is a work in progress.  
+More repositories will be added to the list as they are properly configured. These packages will contain edited, forker robot repositories as well as custom moveit configs for robots whose structure is altered slightly for certain additional equipment where applicable.  
 
 
 
