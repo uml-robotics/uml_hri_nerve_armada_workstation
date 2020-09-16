@@ -31,16 +31,15 @@ Currently only a rough model is provided which uses simple shapes to define the 
 ## Camera Topics
 The workstation model includes four simulated RGBD cameras which Gazebo puhlishes on various topics:  
 
-1. /left_camera
-2. /right_camera
-3. /rear_camera
-4. /top_camera
+1. left_camera
+2. right_camera
+3. rear_camera
+4. top_camera
 
-You can use a command such as:  
+You can use the following command to view the full list of camera depth and color topics when in use:  
 ```
 rostopic list -v | grep camera
 ```
-in order to view the full list of camera depth and color topics when in use.  
 
 ## Usage
 This package supplements other moveit config packages which have the proper launch and configuration files to bring up the robot on the workstation in a gazebo simulation  
