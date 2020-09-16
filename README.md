@@ -78,7 +78,8 @@ The following is a list of industrial robot repositories/moveit config packages 
 
 1. [uml-robotics/kinova-ros](https://github.com/uml-robotics/kinova-ros/tree/master)
   - A forked version of the [Kinovarobotics/kinova-ros](https://github.com/Kinovarobotics/kinova-ros) repository for the Jaco2 and Mico robotic arms
-  - The simulation can be run with the following command for the workstation and j2s7s300 version of the Jaco2 robot: 'roslaunch j2s7s300_moveit_config j2s7s300_gazebo_workstation_and_robot.launch`
+  - The simulation can be run with the following command for the workstation and j2s7s300 version of the Jaco2 robot: 
+	`roslaunch j2s7s300_moveit_config j2s7s300_gazebo_workstation_and_robot.launch`
 
 More repositories will be added to the list, this process is a work in progress.  
 
