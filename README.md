@@ -22,7 +22,11 @@ All branches have only been tested with ROS Kinetic.
 The `uml_hri_nerve_armada_workstation` package is meant to provide a simulated alternative to the workstations constructed for experimentation/testing of industrial robotic arms within the NERVE Center.  
 
 ## Workstation Description
-Currently, only a simple model is provided which uses simple shapes to define the rough size and shape of the workstation. L-shaped arms protruding from both sides and the rear of the workstation represent structures from which cameras could be affixed and serve such purpose in the simulated model. The fourth camera is suspended above the workstation, pointing down, and does not have any connected architecture.  
+Currently only a rough model is provided which uses simple shapes to define the size and shape of the workstation, connected features, and a pedestal and oversized mounting plate for the robot.  
+
+- L-shaped arms protruding from both sides and the rear of the workstation represent structures from which cameras are affixed and serve such purpose in the simulated model, allowing the simulated cameras a mounting point. 
+
+- The fourth camera is suspended above the workstation, pointing down, and does not have any connected architecture. This can be accomplished many ways in the real world but is not necessary to model for our purposes at this moment.  
 
 ## Camera Topics
 The workstation model includes four simulated RGBD cameras which Gazebo puhlishes on various topics:  
@@ -75,7 +79,38 @@ In the robot_description (or similar location) there should be an .xacro file th
   <xacro:j2s7s300  base_parent="${robot_root}"/>
 ```
 
-The file which describes the workstation `workstation_model.urdf.xacro` is contained within this package and included as shown above. This allows the user to create a virtual joint (in this case `connect_table_and_root`) between the robot and workstation, as wel as a joint (`connect_world_and_table`) which will connect the table to the common reference frame, `world`, which normally the robot would be attached to.  
+The file which describes the workstation `workstation_model.urdf.xacro` is contained within this package and included as shown above.  
+
+This method allows the user to create a virtual joint (in this case `connect_table_and_root`) between the robot and workstation, as well as a joint (`connect_world_and_table`) which will connect the table to the common reference frame, `world`, which normally the robot would be attached to.  
+
+Typically there are two launch files in a moveit config; the first will launch a Gazebo world with the robot generated and the second will bring up Rviz with the Moveit! controls and robot visulaization. Both of these files need to point to the .xacro file mentioned above.  
+
+It may be useful to make an edit to the planning\_context.launch file which is generally located in the \<robot\>_moveit_config/launch folder. Any files associated with launching the robot without the simulated workstation will need to refer to the old .xacro file that does not include the workstation. In order to preserve the original functionality while adding the workstation files, the planning\_context.launch file can be adjusted to include the following lines:  
+
+```
+  <!-- By default we are not loading the workstation into the environment -->
+  <arg name="use_workstation" default="false"/>
+
+  <!-- Load universal robot description format (URDF) (No workstation) -->
+  <group unless="$(arg use_workstation)">
+    <param if="$(arg load_robot_description)" name="$(arg robot_description)" command="$(find xacro)/xacro.py '$(find kinova_description)/urdf/j2s7s300_standalone.xacro'"/>
+  </group>
+
+  <!-- Load universal robot description format (URDF) -->
+  <group if="$(arg use_workstation)">
+    <param if="$(arg load_robot_description)" name="$(arg robot_description)" command="$(find xacro)/xacro.py '$(find kinova_description)/urdf/j2s7s300_workstation.xacro'"/>
+  </group>
+```
+
+When using this method, it is important that you pass in an argument when including the planning\_context.launch file in another launch file or when launching from the terminal. An example of this is shown below (from the launch file `j2s7s300\_gazebo_workstation_demo.launch` in the [j2s7s300_moveit_config/launch](https://github.com/uml-robotics/kinova-ros/tree/master/kinova_moveit/robot_configs/j2s7s300_moveit_config/launch) folder in the forked [uml-robotics/kinova-ros](https://github.com/uml-robotics/kinova-ros/tree/master) repository:  
+
+```
+  <!-- Load the URDF, SRDF and other .yaml configuration files on the param server -->
+  <include file="$(find j2s7s300_moveit_config)/launch/planning_context.launch">
+    <arg name="load_robot_description" value="true"/>
+    <arg name="use_workstation" value="true"/>
+  </include>
+```
 
 ## Integrated Packages
 The following is a list of industrial robot repositories/moveit config packages which are already configured to launch the robot and workstation together in a simulated Gazebo environment:  
