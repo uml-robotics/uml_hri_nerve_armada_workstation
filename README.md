@@ -31,10 +31,10 @@ Currently only a rough model is provided which uses simple shapes to define the 
 ## Camera Topics
 The workstation model includes four simulated RGBD cameras which Gazebo puhlishes on various topics:  
 
-1. left_camera
-2. right_camera
-3. rear_camera
-4. top_camera
+1. camera_left
+2. camera_right
+3. camera_rear
+4. camera_top
 
 You can use the following command to view the full list of camera depth and color topics when in use:  
 ```
