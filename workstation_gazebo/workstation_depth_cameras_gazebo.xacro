@@ -42,12 +42,12 @@
           <baseline>0.2</baseline>
           <alwaysOn>true</alwaysOn>
           <updateRate>0.0</updateRate>
-          <cameraName>left_camera</cameraName>
-          <imageTopicName>/left_camera/color/image_raw</imageTopicName>
-          <cameraInfoTopicName>/left_camera/color/camera_info</cameraInfoTopicName>
-          <depthImageTopicName>/left_camera/depth/image_raw</depthImageTopicName>
-          <depthImageCameraInfoTopicName>/left_camera/depth/camera_info</depthImageCameraInfoTopicName>
-          <pointCloudTopicName>/left_camera/depth/points</pointCloudTopicName>
+          <cameraName>camera_left</cameraName>
+          <imageTopicName>/camera_left/color/image_raw</imageTopicName>
+          <cameraInfoTopicName>/camera_left/color/camera_info</cameraInfoTopicName>
+          <depthImageTopicName>/camera_left/depth/image_raw</depthImageTopicName>
+          <depthImageCameraInfoTopicName>/camera_left/depth/camera_info</depthImageCameraInfoTopicName>
+          <pointCloudTopicName>/camera_left/depth/points</pointCloudTopicName>
           <frameName>${prefix}left_optical</frameName>
           <pointCloudCutoff>0.1</pointCloudCutoff>
           <pointCloudCutoffMax>10</pointCloudCutoffMax>
@@ -81,12 +81,12 @@
           <baseline>0.2</baseline>
           <alwaysOn>true</alwaysOn>
           <updateRate>0.0</updateRate>
-          <cameraName>right_camera</cameraName>
-          <imageTopicName>/right_camera/color/image_raw</imageTopicName>
-          <cameraInfoTopicName>/right_camera/color/camera_info</cameraInfoTopicName>
-          <depthImageTopicName>/right_camera/depth/image_raw</depthImageTopicName>
-          <depthImageCameraInfoTopicName>/right_camera/depth/camera_info</depthImageCameraInfoTopicName>
-          <pointCloudTopicName>/right_camera/depth/points</pointCloudTopicName>
+          <cameraName>camera_right</cameraName>
+          <imageTopicName>/camera_right/color/image_raw</imageTopicName>
+          <cameraInfoTopicName>/camera_right/color/camera_info</cameraInfoTopicName>
+          <depthImageTopicName>/camera_right/depth/image_raw</depthImageTopicName>
+          <depthImageCameraInfoTopicName>/camera_right/depth/camera_info</depthImageCameraInfoTopicName>
+          <pointCloudTopicName>/camera_right/depth/points</pointCloudTopicName>
           <frameName>${prefix}right_optical</frameName>
           <pointCloudCutoff>0.1</pointCloudCutoff>
           <pointCloudCutoffMax>10</pointCloudCutoffMax>
@@ -120,12 +120,12 @@
           <baseline>0.2</baseline>
           <alwaysOn>true</alwaysOn>
           <updateRate>0.0</updateRate>
-          <cameraName>rear_camera</cameraName>
-          <imageTopicName>/rear_camera/color/image_raw</imageTopicName>
-          <cameraInfoTopicName>/rear_camera/color/camera_info</cameraInfoTopicName>
-          <depthImageTopicName>/rear_camera/depth/image_raw</depthImageTopicName>
-          <depthImageCameraInfoTopicName>/rear_camera/depth/camera_info</depthImageCameraInfoTopicName>
-          <pointCloudTopicName>/rear_camera/depth/points</pointCloudTopicName>
+          <cameraName>camera_rear</cameraName>
+          <imageTopicName>/camera_rear/color/image_raw</imageTopicName>
+          <cameraInfoTopicName>/camera_rear/color/camera_info</cameraInfoTopicName>
+          <depthImageTopicName>/camera_rear/depth/image_raw</depthImageTopicName>
+          <depthImageCameraInfoTopicName>/camera_rear/depth/camera_info</depthImageCameraInfoTopicName>
+          <pointCloudTopicName>/camera_rear/depth/points</pointCloudTopicName>
           <frameName>${prefix}rear_optical</frameName>
           <pointCloudCutoff>0.1</pointCloudCutoff>
           <pointCloudCutoffMax>10</pointCloudCutoffMax>
@@ -159,12 +159,12 @@
           <baseline>0.2</baseline>
           <alwaysOn>true</alwaysOn>
           <updateRate>0.0</updateRate>
-          <cameraName>top_camera</cameraName>
-          <imageTopicName>/top_camera/color/image_raw</imageTopicName>
-          <cameraInfoTopicName>/top_camera/color/camera_info</cameraInfoTopicName>
-          <depthImageTopicName>/top_camera/depth/image_raw</depthImageTopicName>
-          <depthImageCameraInfoTopicName>/top_camera/depth/camera_info</depthImageCameraInfoTopicName>
-          <pointCloudTopicName>/top_camera/depth/points</pointCloudTopicName>
+          <cameraName>camera_top</cameraName>
+          <imageTopicName>/camera_top/color/image_raw</imageTopicName>
+          <cameraInfoTopicName>/camera_top/color/camera_info</cameraInfoTopicName>
+          <depthImageTopicName>/camera_top/depth/image_raw</depthImageTopicName>
+          <depthImageCameraInfoTopicName>/camera_top/depth/camera_info</depthImageCameraInfoTopicName>
+          <pointCloudTopicName>/camera_top/depth/points</pointCloudTopicName>
           <frameName>${prefix}top_optical</frameName>
           <pointCloudCutoff>0.1</pointCloudCutoff>
           <pointCloudCutoffMax>10</pointCloudCutoffMax>
