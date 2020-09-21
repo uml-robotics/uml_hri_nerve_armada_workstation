@@ -44,6 +44,8 @@ rostopic list -v | grep camera
 ## Usage
 This package supplements other moveit config packages which have the proper launch and configuration files to bring up the robot on the workstation in a gazebo simulation  
 
+- The following changes have already been applied to any repositories in the [Integrated Packages](#integrated-packages) section of this README and this information serves as a guide to include additional repositories in the future.  
+
 - In the robot\_description directory (or similar location) of a new robot's moveit_config package, the user should create an .xacro file that contains instructions for how to assemble the robot and workstation model. The result should look something similar to the code provided below from the forked kinova-ros repository linked in [Integrated Packages](#integrated-packages) below:  
 
 ```
@@ -114,8 +116,11 @@ The following is a list of industrial robot repositories/moveit config packages 
 
 1. [uml-robotics/kinova-ros](https://github.com/uml-robotics/kinova-ros/tree/master)
   - A forked version of the [Kinovarobotics/kinova-ros](https://github.com/Kinovarobotics/kinova-ros) repository for the Jaco2 and Mico robotic arms
-  - The simulation can be run with the following command for the workstation and j2s7s300 version of the Jaco2 robot: 
-	`roslaunch j2s7s300_moveit_config j2s7s300_gazebo_workstation_and_robot.launch`
+  - The simulation can be run with the following command for the workstation and multiple versions of the Jaco2/Mico robot: 
+	`roslaunch kinova_gazebo gazebo_robot.launch kinova_robotType:=<robot_version> use_sim_workstation:=<true_or_false>`
+  - The default value for argument `use_sim_workstation` is `false`, so it can be omitted if you wish to lauch the robot in gazebo without the workstation
+  - The following robot versions are supported: `j2n6s300`, `j2s6s300`, `j2s7s300`, `m1n6s300`
+  - The following robot versions currently have some odd behavior in gazebo when launched with the workstation: `j2n6s300`, `j2s6s300` 
 
 More repositories will be added to the list as they are properly configured. These packages will contain edited, forker robot repositories as well as custom moveit configs for robots whose structure is altered slightly for certain additional equipment where applicable.  
 
