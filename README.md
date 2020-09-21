@@ -124,6 +124,24 @@ The following is a list of industrial robot repositories/moveit config packages 
 
 More repositories will be added to the list as they are properly configured. These packages will contain edited, forker robot repositories as well as custom moveit configs for robots whose structure is altered slightly for certain additional equipment where applicable.  
 
+TODO:  
+
+2. [uml-robotics/ros_kortex](https://github.com/uml-robotics/ros_kortex)
+  - A forked version of the [Kinovarobotics/ros_kortex](https://github.com/Kinovarobotics/ros_kortex) repository for Kinova Kortex (Gen3/Gen3 lite) robotic arms
+  - The simulation can be run with the following command for the workstation and Gen3/Gen3 lite robot
+	`roslaunch kortex_gazebo spawn_kortex_robot.launch arm:=<robot_version> gripper:=<robot_gripper> use_sim_workstation:=true_or_false`
+  - The default value for argument `use_sim_workstation` is `false`, so it can be omitted if you wish to lauch the robot in gazebo without the workstation
+  - The following robot versions are supported: `gen3`, `gen3_lite`
+  - The following robot grippers are supported: `gen3_lite_2f`, `robotiq_2f_140`, `robotiq_2f_85`
+
+3. ur5e package
+
+4. omron techman package
+
+5. kuka package
+
+6. yaskawa motoman package
+
 
 
 
