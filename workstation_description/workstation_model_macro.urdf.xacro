@@ -15,7 +15,7 @@
 
   <xacro:include filename="$(find uml_hri_nerve_armada_workstation)/workstation_description/workstation_model.urdf.xacro" />
 
-  <xacro:workstation prefix="table_"/>
+  <xacro:workstation prefix="table_" namespace=""/>
 
   <!-- This is not required because the "world" link already exists
   <link name="world" />

@@ -117,30 +117,32 @@ The following is a list of industrial robot repositories/moveit config packages 
 1. [uml-robotics/kinova-ros](https://github.com/uml-robotics/kinova-ros/tree/master)
   - A forked version of the [Kinovarobotics/kinova-ros](https://github.com/Kinovarobotics/kinova-ros) repository for the Jaco2 and Mico robotic arms
   - The simulation can be run with the following command for the workstation and multiple versions of the Jaco2/Mico robot: 
-	`roslaunch kinova_gazebo gazebo_robot.launch kinova_robotType:=<robot_version> use_sim_workstation:=<true_or_false>`
+	`roslaunch kinova_gazebo gazebo_robot.launch kinova_robotType:=<robot_version> sim_workstation:=<true_or_false>`
   - The default value for argument `use_sim_workstation` is `false`, so it can be omitted if you wish to lauch the robot in gazebo without the workstation
   - The following robot versions are supported: `j2n6s300`, `j2s6s300`, `j2s7s300`, `m1n6s300`
   - The following robot versions currently have some odd behavior in gazebo when launched with the workstation: `j2n6s300`, `j2s6s300` 
 
-More repositories will be added to the list as they are properly configured. These packages will contain edited, forker robot repositories as well as custom moveit configs for robots whose structure is altered slightly for certain additional equipment where applicable.  
-
-TODO:  
-
 2. [uml-robotics/ros_kortex](https://github.com/uml-robotics/ros_kortex)
   - A forked version of the [Kinovarobotics/ros_kortex](https://github.com/Kinovarobotics/ros_kortex) repository for Kinova Kortex (Gen3/Gen3 lite) robotic arms
   - The simulation can be run with the following command for the workstation and Gen3/Gen3 lite robot
-	`roslaunch kortex_gazebo spawn_kortex_robot.launch arm:=<robot_version> gripper:=<robot_gripper> use_sim_workstation:=true_or_false`
+	`roslaunch kortex_gazebo spawn_kortex_robot.launch arm:=<robot_version> gripper:=<robot_gripper> sim_workstation:=<true_or_false>`
   - The default value for argument `use_sim_workstation` is `false`, so it can be omitted if you wish to lauch the robot in gazebo without the workstation
   - The following robot versions are supported: `gen3`, `gen3_lite`
   - The following robot grippers are supported: `gen3_lite_2f`, `robotiq_2f_140`, `robotiq_2f_85`
 
+More repositories will be added to the list as they are properly configured. These packages will contain edited, forker robot repositories as well as custom moveit configs for robots whose structure is altered slightly for certain additional equipment where applicable.  
+
 3. ur5e package
+  - TODO:  
 
 4. omron techman package
+  - TODO:  
 
 5. kuka package
+  - TODO:  
 
 6. yaskawa motoman package
+  - TODO:  
 
 
 
