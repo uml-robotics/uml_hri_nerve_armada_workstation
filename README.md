@@ -124,7 +124,7 @@ The following is a list of industrial robot repositories/moveit config packages 
 
 2. [uml-robotics/ros_kortex](https://github.com/uml-robotics/ros_kortex)
   - A forked version of the [Kinovarobotics/ros_kortex](https://github.com/Kinovarobotics/ros_kortex) repository for Kinova Kortex (Gen3/Gen3 lite) robotic arms
-  - The simulation can be run with the following command for the workstation and Gen3/Gen3 lite robot
+  - The simulation can be run with the following command for the workstation with a Gen3 or Gen3 lite robot
 	`roslaunch kortex_gazebo spawn_kortex_robot.launch arm:=<robot_version> gripper:=<robot_gripper> sim_workstation:=<true_or_false> dof:=<6_or_7>'`
   - The default value for argument `use_sim_workstation` is `false`, so it can be omitted if you wish to lauch the robot in gazebo without the workstation
   - The following robot versions are supported: `gen3`, `gen3_lite`
@@ -132,8 +132,15 @@ The following is a list of industrial robot repositories/moveit config packages 
 
 More repositories will be added to the list as they are properly configured. These packages will contain edited, forker robot repositories as well as custom moveit configs for robots whose structure is altered slightly for certain additional equipment where applicable.  
 
-3. ur5e package
-  - TODO:  
+3. [uml-robotics/universal_robot](https://github.com/uml-robotics/universal_robot.git)
+  - A forked version of the [ros-industrial/universal_robot](https://github.com/ros-industrial/universal_robot.git) repository for the UR3, UR5, and UR10 CB-Series (older) and e-Series (newer) industrial robot arms
+  - The simulation can be run with either of the following commands, depending on which robot series you want to use, for the workstation with a UR3/UR3e, UR5/UR5e, and UR10/UR10e robots with standard or joint-limited configurations:
+	`roslaunch ur_e_gazebo gazebo_universal_robot.launch limited:=<true_or_false> sim_workstation:=<true_or_false> model:=<robot_model>`
+	`roslaunch ur_gazebo gazebo_universal_robot.launch limited:=<true_or_false> sim_workstation:=<true_or_false> model:=<robot_model>`
+  - Note that you use the `ur_e_gzebo` package to launch any e-series robots and the `ur_gazebo` package to launch any CB-series robots
+  - The following robot versions are supported for either launch file: `ur3`, `ur5`, `ur10`
+  - Remember that the package you launch the robot from determines the series, the model argument you input will not include the series (`ur5`, not `ur5e` for example)
+  - The robots behave less unexpectedly in simulation when their joints are limited, however it is not a requirement. To limit the joints, set the `limited` argument to `true`
 
 4. omron techman package
   - TODO:  
