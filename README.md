@@ -44,7 +44,7 @@ rostopic list -v | grep camera
 ## Usage
 This package supplements other moveit config packages which have the proper launch and configuration files to bring up the robot on the workstation in a gazebo simulation  
 
-- The following changes have already been applied to any repositories in the [Integrated Packages](#integrated-packages) section of this README and this information serves as a guide to include additional repositories in the future.  
+- The following changes have already been applied to any repositories in the [Integrated Packages](#integrated-packages) section of this README so this information serves as a supplementary guide for including additional repositories in the future. There are typically minor differences in how each repository is set up so the following steps won't all necessarily be correct in each case. The reader should instead use the information presented as clues rather than rules for any related future work or additions. The best way to gain insight in any case is to follow the main launch file to better understand any arguments or parameters used and to find out exactly which files are called, and how decisions are made based upon any inputs from the user.  
 
 - In the robot\_description directory (or similar location) of a new robot's moveit_config package, the user should create an .xacro file that contains instructions for how to assemble the robot and workstation model. The result should look something similar to the code provided below from the forked kinova-ros repository linked in [Integrated Packages](#integrated-packages) below:  
 
@@ -78,9 +78,9 @@ This package supplements other moveit config packages which have the proper laun
 
 - This method allows the user to create a virtual joint (in this case `connect_table_and_root`) between the robot and workstation as well as a joint (`connect_world_and_table`) to connect the table to the common reference frame, `world`, which normally the robot would be attached to.  
 
-- Typically two launch files are used to bring up the robot (real or simulation) and to launch Rviz with Moveit! controls and visualizations. Both of these files need to point to the .xacro file mentioned above in order to generate the correct workstation model.  
+- In the case of the kinova-ros package for the Mico and Jaco2 robots, two launch files are used to bring up the robot (real or simulation) and to launch Rviz with Moveit! controls and visualizations. Both of these files point to the .xacro file mentioned above in order to generate the correct workstation model.  
 
-- It may be useful to make an edit to the planning\_context.launch file which is generally located in the *your_robot*\_moveit_config/launch folder.  
+- In this case it may be useful to make an edit to the planning\_context.launch file, which is generally located in the *your_robot*\_moveit_config/launch folder, since it refers to the file that generates your robot description. ***Note that this is not always the case in every moveit\_config, examine your files before you make arbitrary changes to detemine if they are actually required.***  
   - Any existing files associated with launching the robot without the simulated workstation will need to refer to the old .xacro file that does not include the workstation.  
   - Loading different robot parameters depending on an input argument, `use_workstation`, simplifies this process and does not require you to edit any other existing files.  
 
