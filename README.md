@@ -143,9 +143,16 @@ More repositories will be added to the list as they are properly configured. The
   - The following robot versions are supported for either launch file: `ur3`, `ur5`, `ur10`
   - The robots behave less unexpectedly in simulation when their joints are limited, however it is not a requirement to do so. To limit the joints, set the `limited` argument to `true`
   - The following robot grippers are supported: `robotiq_2f_85`, `robotiq_2f_140`
+  - At the NERVE Center, our physical model is the e-Series `ur5` with a `robotiq_2f_85` gripper
 
-4. omron techman package
-  - TODO:  
+4. [uml-robotics/ros-driver-techman-robot](https://github.com/uml-robotics/ros-driver-techman-robot)
+  - A forked version of the [viirya/ros-driver-techman-robot](https://github.com/viirya/ros-driver-techman-robot) repository for the tm700 (tm5-700) and tm900 (tm5-900) industrial robot arms
+  - The simulation can be run with the following command for the workstation with a tm5-700 robot:  
+	`roslaunch tm_gazebo tm700_gazebo_moveit.launch limited:=<true_or_false> model:=<robot_model> sim_workstation:=<true_or_false> gripper:=<robot_gripper> eih:=<true_or_false>`
+  - The default value for argument `limited`, `sim_workstation` and `eih` is `false`, so it can be omitted if you wish to lauch the robot in gazebo without the workstation
+  - The following robot version is supported: `tm700`
+  - The following robot grippers are supported: `robotiq_2f_85`, `robotiq_2f_140`
+  - At the NERVE Center, our physical model is the `tm700` with `eih` and no gripper
 
 5. kuka package
   - TODO:  
