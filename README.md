@@ -132,8 +132,6 @@ The following is a list of industrial robot repositories/moveit config packages 
   - The following robot grippers are supported: `gen3_lite_2f`, `robotiq_2f_85`, `robotiq_2f_140`
   - At the NERVE Center, our physical model is the `gen3` with a `robotiq_2f_85` gripper
 
-More repositories will be added to the list as they are properly configured. These packages will contain edited, forker robot repositories as well as custom moveit configs for robots whose structure is altered slightly for certain additional equipment where applicable.  
-
 3. [uml-robotics/universal_robot](https://github.com/uml-robotics/universal_robot.git)
   - A forked version of the [ros-industrial/universal_robot](https://github.com/ros-industrial/universal_robot.git) repository for the UR3, UR5, and UR10 CB-Series (older) and e-Series (newer) industrial robot arms
   - The simulation can be run with either of the following commands, depending on which robot series you want to use, for the workstation with a UR3/UR3e, UR5/UR5e, and UR10/UR10e robots with standard or joint-limited configurations:  
@@ -154,11 +152,17 @@ More repositories will be added to the list as they are properly configured. The
   - The following robot grippers are supported: `robotiq_2f_85`, `robotiq_2f_140`
   - At the NERVE Center, our physical model is the `tm700` with `eih` and no gripper
 
-5. kuka package
+5. kuka package - WIP
   - TODO:  
+  1. create moveit config packages for arms with multiple grippers
+  2. create descriptions for robot with gripper, joint_limits, workstation, ets.
+  3. update usage instructions here 
 
-6. yaskawa motoman package
+6. yaskawa motoman package - WIP
   - TODO:  
+  1. create moveit config packages for arms with multiple grippers
+  2. create descriptions for robot with gripper, joint_limits, workstation, ets.
+  3. update usage instructions here 
 
 
 
