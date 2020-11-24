@@ -114,7 +114,7 @@ This package supplements other moveit config packages which have the proper laun
 ## Integrated Packages
 The following is a list of industrial robot repositories/moveit config packages which are already configured to launch the robot and workstation together in a simulated Gazebo environment:  
 
-1. [uml-robotics/kinova-ros](https://github.com/uml-robotics/kinova-ros/tree/master)
+1. [uml-robotics/kinova-ros](https://github.com/uml-robotics/kinova-ros/tree/dev/bflynn)
   - A forked version of the [Kinovarobotics/kinova-ros](https://github.com/Kinovarobotics/kinova-ros) repository for the Jaco2 and Mico robotic arms
   - The simulation can be run with the following command for the workstation and multiple versions of the Jaco2/Mico robot:  
 	`roslaunch kinova_gazebo gazebo_robot.launch kinova_robotType:=<robot_version> sim_workstation:=<true_or_false>`
@@ -123,7 +123,7 @@ The following is a list of industrial robot repositories/moveit config packages 
   - The following robot versions currently have some odd behavior in gazebo when launched with the workstation: `j2n6s300`, `j2s6s300`
   - At the NERVE Center, our physical model is the `j2s7s300`
 
-2. [uml-robotics/ros_kortex](https://github.com/uml-robotics/ros_kortex)
+2. [uml-robotics/ros_kortex](https://github.com/uml-robotics/ros_kortex/tree/dev/bflynn)
   - A forked version of the [Kinovarobotics/ros_kortex](https://github.com/Kinovarobotics/ros_kortex) repository for Kinova Kortex (Gen3/Gen3 lite) robotic arms
   - The simulation can be run with the following command for the workstation with a Gen3 or Gen3 lite robot:  
 	`roslaunch kortex_gazebo spawn_kortex_robot.launch arm:=<robot_version> gripper:=<robot_gripper> sim_workstation:=<true_or_false> dof:=<6_or_7>'`
@@ -132,7 +132,7 @@ The following is a list of industrial robot repositories/moveit config packages 
   - The following robot grippers are supported: `gen3_lite_2f`, `robotiq_2f_85`, `robotiq_2f_140`
   - At the NERVE Center, our physical model is the `gen3` with a `robotiq_2f_85` gripper
 
-3. [uml-robotics/universal_robot](https://github.com/uml-robotics/universal_robot.git)
+3. [uml-robotics/universal_robot](https://github.com/uml-robotics/universal_robot/tree/dev/bflynn)
   - A forked version of the [ros-industrial/universal_robot](https://github.com/ros-industrial/universal_robot.git) repository for the UR3, UR5, and UR10 CB-Series (older) and e-Series (newer) industrial robot arms
   - The simulation can be run with either of the following commands, depending on which robot series you want to use, for the workstation with a UR3/UR3e, UR5/UR5e, and UR10/UR10e robots with standard or joint-limited configurations:  
   1. `roslaunch ur_e_gazebo gazebo_universal_robot.launch limited:=<true_or_false> sim_workstation:=<true_or_false> model:=<robot_model>`  
@@ -143,7 +143,7 @@ The following is a list of industrial robot repositories/moveit config packages 
   - The following robot grippers are supported: `robotiq_2f_85`, `robotiq_2f_140`
   - At the NERVE Center, our physical model is the e-Series `ur5` with a `robotiq_2f_85` gripper
 
-4. [uml-robotics/ros-driver-techman-robot](https://github.com/uml-robotics/ros-driver-techman-robot)
+4. [uml-robotics/ros-driver-techman-robot](https://github.com/uml-robotics/ros-driver-techman-robot/tree/dev/bflynn)
   - A forked version of the [viirya/ros-driver-techman-robot](https://github.com/viirya/ros-driver-techman-robot) repository for the tm700 (tm5-700) and tm900 (tm5-900) industrial robot arms
   - The simulation can be run with the following command for the workstation with a tm5-700 robot:  
 	`roslaunch tm_gazebo tm700_gazebo_moveit.launch limited:=<true_or_false> model:=<robot_model> sim_workstation:=<true_or_false> gripper:=<robot_gripper> eih:=<true_or_false>`
