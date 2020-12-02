@@ -146,17 +146,20 @@ The following is a list of industrial robot repositories/moveit config packages 
 4. [uml-robotics/ros-driver-techman-robot](https://github.com/uml-robotics/ros-driver-techman-robot/tree/dev/bflynn)
   - A forked version of the [viirya/ros-driver-techman-robot](https://github.com/viirya/ros-driver-techman-robot) repository for the tm700 (tm5-700) and tm900 (tm5-900) industrial robot arms
   - The simulation can be run with the following command for the workstation with a tm5-700 robot:  
-	`roslaunch tm_gazebo tm700_gazebo_moveit.launch limited:=<true_or_false> model:=<robot_model> sim_workstation:=<true_or_false> gripper:=<robot_gripper> eih:=<true_or_false>`
+	`roslaunch iiwa_gazebo gazebo_iiwa_robot.launch model:=<robot_model> sim_workstation:=<true_or_false> gripper:=<robot_gripper> eih:=<true_or_false>`
   - The default value for argument `limited`, `sim_workstation` and `eih` is `false`, so it can be omitted if you wish to lauch the robot in gazebo without the workstation
   - The following robot version is supported: `tm700`
   - The following robot grippers are supported: `robotiq_2f_85`, `robotiq_2f_140`
   - At the NERVE Center, our physical model is the `tm700` with `eih` and no gripper
 
-5. kuka package - WIP
-  - TODO:  
-  1. create moveit config packages for arms with multiple grippers
-  2. create descriptions for robot with gripper, joint_limits, workstation, ets.
-  3. update usage instructions here 
+5. [uml-robotics/iiwa_stack](https://github.com/uml-robotics/iiwa_stack/tree/dev/bflynn)
+  - A forked version of the [IFL-CAMP/iiwa_stack](https://github.com/IFL-CAMP/iiwa_stack) repository for the ROS integration for the KUKA LBR IIWA R800/R820 (7/14 Kg)
+  - The simulation can be run with the following command for the workstation with a tm5-700 robot:  
+	`roslaunch tm_gazebo tm700_gazebo_moveit.launch model:=<robot_model> sim_workstation:=<true_or_false> gripper:=<robot_gripper>`
+  - The default value for argument `sim_workstation` is `false`, so it can be omitted if you wish to lauch the robot in gazebo without the workstation
+  - The following robot version is supported: `iiwa7`
+  - The following robot grippers are supported: `robotiq_2f_85`, `robotiq_2f_140`
+  - At the NERVE Center, our physical model is the `iiwa7` with no gripper
 
 6. yaskawa motoman package - WIP
   - TODO:  
